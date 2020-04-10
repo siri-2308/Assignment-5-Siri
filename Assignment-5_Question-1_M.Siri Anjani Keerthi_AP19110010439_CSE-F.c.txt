@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<string.h>
+#define max 30
+
+int top = -1;
+char stack[max];
+char push(char item)
+{
+	if(top == (max-1))
+		printf("Stack Overflow\n");
+	else
+		stack[++top] =item;
+}
+char pop()
+{
+	if(top == -1)
+		printf("Stack is empty\n");
+	else
+		return stack[top--];
+}
+main()
+{
+	char str[15];
+	int s;
+	printf("Enter the string : " );
+	gets(str);
+	for(s=0;s<strlen(str);s++)
+		push(str[s]);
+	for(s=0;s<strlen(str);s++)
+		str[s]=pop();
+	printf("Reversed string is : ");
+	puts(str);
+}
